@@ -1,0 +1,257 @@
+:root {
+  --color-white: #fff;
+
+  --sidebar-background-color: #0ea5e9;
+  --header-background-color: #fff;
+  --main-background-color: #e0f2fe;
+
+  --input-search-background-color: #e0f2fe;
+  --button-background-color: #0ea5e9;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto 6fr;
+  grid-template-rows: auto 7fr;
+  grid-template-areas:
+    "side head"
+    "side main"
+    "side main";
+}
+
+a:link,
+a:visited {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  color: currentColor;
+}
+
+svg {
+  fill: currentColor;
+  width: 2rem;
+  height: 2rem;
+}
+
+img {
+  width: 4rem;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-area: side;
+  background-color: var(--sidebar-background-color);
+  color: var(--color-white);
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 4rem;
+}
+
+.sidebar a {
+  display: flex;
+  gap: 2rem;
+}
+
+.sidebar a .logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Sidebar Navbar */
+.sidebar .navbar {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 4rem;
+}
+
+.sidebar .navbar div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header */
+.header {
+  grid-area: head;
+  background-color: var(--header-background-color);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "search profile"
+    "user-info user-info";
+  gap: 2rem 8rem;
+  padding: 2rem 5rem;
+}
+
+.header .searchbar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  grid-area: search;
+}
+
+.header .searchbar input[type="search"] {
+  background-color: var(--input-search-background-color);
+  border: none;
+  border-radius: 3rem;
+  width: 100%;
+  height: 3rem;
+}
+
+.header .searchbar button[type="submit"] {
+  background-color: var(--color-white);
+}
+
+.user-profile {
+  grid-area: profile;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user-info {
+  grid-area: user-info;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info div {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.user-info-picture {
+  width: 6rem;
+}
+
+.user-info-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-info-name .greeting {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.user-info-name .username {
+  font-weight: bold;
+}
+
+.user-info .buttons button[type="button"] {
+  background-color: var(--button-background-color);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+}
+
+/* Main */
+.main {
+  grid-area: main;
+  background-color: var(--main-background-color);
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "projects anouncements"
+    "projects trending";
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+
+.main h2 {
+  margin-bottom: 2rem;
+}
+
+.main .projects {
+  grid-area: projects;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.main .projects > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.main .projects > div .project {
+  background-color: var(--color-white);
+  border-left: 0.8rem solid orange;
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: repeat(2, auto) 1fr;
+}
+
+.main .projects > div .project div {
+  align-self: end;
+  justify-self: end;
+  display: flex;
+  gap: 2rem;
+}
+
+.main .anouncements {
+  grid-area: anouncements;
+}
+
+.main .anouncements hr {
+  width: 100%;
+  margin: 2rem auto;
+  border: 0.1rem solid #e4e4e4;
+}
+
+.main .anouncements > div {
+  background-color: var(--color-white);
+  padding: 4rem;
+}
+
+.main .trending {
+  grid-area: trending;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.main .trending > div {
+  background-color: var(--color-white);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main .trending > div div {
+  display: flex;
+  gap: 2rem;
+}
+
+.main .trending > div div p {
+  display: flex;
+  flex-direction: column;
+}
+
+.main .trending > div div p span {
+  font-weight: bold;
+}
